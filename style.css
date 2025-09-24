@@ -1,0 +1,39 @@
+/* Based on the design specifications in rules.md */
+
+body {
+    background-color: #FFFFFF; /* From Canvas Background Color */
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; /* From Font Family */
+    margin: 0;
+    padding: 20px; /* Add some padding to the body */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh;
+}
+
+.container {
+    width: 1080px;
+    /* height: 1350px; /* Height is often better left to auto-adjust to content */
+    background-color: #FFFFFF; /* Canvas background */
+    padding: 40px; /* Increased padding for better visual separation */
+    box-sizing: border-box; /* To include padding in the total width/height */
+    border: 1px solid #EEE; /* Add a light border to visualize the canvas area */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow for depth */
+}
+
+#main-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 1.5;
+    margin-top: 0; /* Remove default margin */
+    margin-bottom: 24px; /* From Layout Paragraph Margin */
+}
+
+#main-content {
+    font-size: 24px;
+    font-weight: normal;
+    color: #555555;
+    line-height: 1.8;
+    margin: 0; /* Remove default margin */
+}
