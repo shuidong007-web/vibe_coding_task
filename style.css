@@ -1,10 +1,23 @@
-/* Based on the design specifications in rules.md */
+html, body {
+    background-color: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure consistent box model */
+}
+
+/* Based on the design specifications in rules.md and visual analysis of reference-2.jpg */
 
 body {
-    background-color: #FFFFFF; /* From Canvas Background Color */
+    /* background-color: #EBEBEB; /* This is now handled by html, body */
     font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; /* From Font Family */
-    margin: 0;
-    padding: 20px; /* Add some padding to the body */
+    color: #333333; /* Apply consistent text color */
+    font-size: 24px; /* Set default font size for body */
+    line-height: 1.8; /* Set default line height for body */
+    margin: 0 !important; /* Force no margin */
+    padding: 0 !important; /* Force no padding */
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align items to the top */
@@ -12,28 +25,31 @@ body {
 }
 
 .container {
-    width: 1080px;
-    /* height: 1350px; /* Height is often better left to auto-adjust to content */
-    background-color: #FFFFFF; /* Canvas background */
-    padding: 40px; /* Increased padding for better visual separation */
+    width: 828px; /* Adjusted to match reference-2.jpg width */
+    height: 979px; /* Set height to match reference-2.jpg */
+    background-color: #FFFFFF; /* Set container background to pure white */
+    padding: 20px; /* Adjusted to match reference-2.jpg padding */
     box-sizing: border-box; /* To include padding in the total width/height */
-    border: 1px solid #EEE; /* Add a light border to visualize the canvas area */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow for depth */
 }
 
-#main-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #333333;
-    line-height: 1.5;
-    margin-top: 0; /* Remove default margin */
+/* Styling for the initial paragraph */
+.container > p {
+    font-size: 24px; /* Match body text size */
+    line-height: 1.8; /* Match body text line height */
     margin-bottom: 24px; /* From Layout Paragraph Margin */
 }
 
-#main-content {
-    font-size: 24px;
-    font-weight: normal;
-    color: #555555;
-    line-height: 1.8;
-    margin: 0; /* Remove default margin */
+ol {
+    padding-left: 30px; /* From Layout List Indentation */
+}
+
+ol li {
+    font-size: 24px; /* Ensure list items also have correct font size */
+    line-height: 1.8; /* Ensure list items also have correct line height */
+    margin-bottom: 20px; /* From Layout List Item Spacing */
+}
+
+/* Remove margin-bottom from the last list item to match reference-2.jpg's abrupt end */
+ol li:last-child {
+    margin-bottom: 0;
 }
