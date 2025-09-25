@@ -8,20 +8,21 @@
 
 *   **Python 3.8+:** 推荐从 [Python 官方网站](https://www.python.org/downloads/) 下载安装。
 *   **Git:** 用于版本控制，推荐从 [Git 官方网站](https://git-scm.com/downloads) 下载安装。
-*   **Gemini CLI (或集成开发环境):** 本项目开发过程中使用了 Gemini CLI 作为AI协同开发工具。如果您希望在开发过程中获得AI协助，请确保您的开发环境已配置好Gemini CLI或相应的AI集成。具体安装和配置请参考您所使用的Gemini CLI或IDE插件的官方文档。
 
-**注意:** 为了便于管理和保持一致性，建议您在注册 Git、GitHub 和 Gemini CLI 时使用相同的邮箱地址。
-*   **Playwright:** 浏览器自动化工具。
-*   **Pillow:** Python图像处理库。
+项目所需的Python库已在 `requirements.txt` 文件中列出。
 
 **安装命令:**
-首先，确保您已安装 Python 和 Git。然后，打开命令行工具（如 PowerShell, CMD 或 Git Bash），执行以下命令安装所需的 Python 库：
+首先，确保您已安装 Python 和 Git。然后，打开命令行工具（如 PowerShell, CMD 或 Git Bash），切换到项目根目录，执行以下命令安装所有依赖：
 
 ```bash
-pip install playwright pillow
+pip install -r requirements.txt
+```
+
+接下来，安装 Playwright 所需的浏览器驱动：
+
+```bash
 playwright install
 ```
-`playwright install` 命令将安装 Playwright 所需的浏览器驱动（如 Chromium）。
 
 ## 3. 配置步骤
 本项目通过读取 `input_data.csv` 文件来获取生成图片所需的数据。请确保 `input_data.csv` 文件位于项目根目录，并遵循以下格式要求：
@@ -42,14 +43,20 @@ playwright install
 ```
 
 ## 4. 运行指南
-在完成环境配置和 `input_data.csv` 文件准备后，打开命令行工具，切换到项目根目录，然后执行以下命令即可运行项目：
+在完成环境配置和数据准备后，您可以通过以下命令来运行项目：
 
-```bash
-run.bat [可选: 您的自定义CSV文件名]
-```
-或者，如果您不使用 `run.bat` 脚本，可以直接运行 Python 脚本：
+**1. 使用默认数据 (`input_data.csv`)**
+
+在命令行中直接运行以下命令：
 ```bash
 python generate_image.py
+```
+
+**2. 使用自定义CSV文件**
+
+如果您想使用其他CSV文件，请在命令后面附上文件名，例如：
+```bash
+python generate_image.py your_custom_data.csv
 ```
 
 脚本将自动读取 `input_data.csv` (或您指定的CSV文件)，为每一行数据生成图片，并进行打包。

@@ -28,14 +28,19 @@
     cd [您的项目目录]
     ```
 2.  **环境准备:**
-    请参考 `manual.md` 文件中的详细 **环境要求** 和 **安装命令**。确保您已安装 Python、Git、Playwright 及其浏览器驱动，并配置好 Gemini CLI。
+    确保您已安装 Python 和 Git。然后，在项目根目录运行以下命令安装所有依赖：
+    ```bash
+    pip install -r requirements.txt
+    playwright install
+    ```
+    更详细的环境说明请参考 `manual.md` 文件。
 3.  **配置数据:**
     编辑 `input_data.csv` 文件，按照 `主标题,正文内容` 的格式填入您希望生成图片的数据。详情请参考 `manual.md` 中的 **配置步骤**。
 4.  **运行生成器:**
     ```bash
-    run.bat
+    python generate_image.py
     ```
-    脚本将自动读取 `input_data.csv`，为每一行数据生成图片，并进行打包。您也可以通过 `run.bat [您的自定义CSV文件名]` 来指定其他CSV文件。
+    您也可以通过 `python generate_image.py [您的自定义CSV文件名]` 来指定其他CSV文件。
 
 ## 📂 项目结构
 ```

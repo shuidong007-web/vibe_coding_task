@@ -54,48 +54,41 @@
 *   **Git 提交:**
     *   `8357e03 - feat: Implement batch processing from CSV and zip packaging (5 minutes ago)`: 实现了批量处理和打包功能。
 
+## 阶段4: 创建自动化脚本与处理环境兼容性问题
+*   **目标:** 创建一个端到端的自动化脚本，并解决在Windows环境下遇到的执行问题。
+*   **关键决策:** 
+    1.  **创建 `requirements.txt`:** 将项目依赖 `playwright` 和 `Pillow` 标准化，便于环境复现。
+    2.  **增强 `generate_image.py`:** 修改脚本以接受命令行参数，允许用户指定自定义的CSV文件，增强灵活性。
+    3.  **创建 `run.bat`:** 开发一个批处理脚本，旨在自动化执行依赖安装和图片生成两个步骤。
+    4.  **调试与迭代:** 面对 `run.bat` 的编码问题 (`chcp 65001` 方案失败) 和 `generate_image.py` 的 `UnicodeEncodeError`，决定将编码修复逻辑 (`sys.stdout.reconfigure`) 移至Python脚本的入口点，从根本上解决问题。
+    5.  **最终方案:** 由于 `run.bat` 在特定终端环境下持续存在问题，最终决定废弃该脚本，将 `python generate_image.py` 作为官方推荐的、最可靠的执行方式。
+*   **挑战与思考:**
+    *   **Windows终端编码:** 深刻认识到Windows CMD/PowerShell的默认编码（GBK）与UTF-8文件（批处理脚本、Python输出）之间的冲突是常见问题。`chcp 65001` 方案并非万能，更稳妥的方案是在应用程序（Python）层面处理编码，而不是依赖外部环境配置。
+    *   **方案的健壮性:** 自动化脚本 (`run.bat`) 的本意是简化操作，但当它引入了比核心功能更复杂的环境问题时，就违背了初衷。选择更简单、直接、跨平台兼容性更好的 `python` 命令，是更务实和健壮的工程决策。
+*   **产物变更:** 
+    *   `新增`: `requirements.txt`
+    *   `修改`: `generate_image.py` (增加命令行参数处理和编码修复)
+    *   `删除`: `run.bat` (因兼容性问题废弃)
+
 ---
 
 **总结:**
 本项目通过迭代开发和持续测试，成功构建了一个功能强大的自动化图片生成器。在开发过程中，我们不仅实现了核心功能，还解决了多项技术挑战，包括 Playwright 的异步操作、文件路径处理、编码问题以及精确的视觉匹配。最终，脚本能够根据用户提供的文本内容，批量生成符合设计规范的图片，并进行自动化打包。
 
-### 2025-09-25 09:39:38
-#### PRD 更新记录
-- `prd.md` 已更新。
-
-#### 代码更新记录
-- `A`: README.md
-- `M`: experience.md
-- `D`: gemini.md
-- `A`: git_history.txt
-- `M`: manual.md
-- `A`: prd.md
-
-#### 调试版本记录
-- (请在此处手动填写版本信息)
-
----
-### 2025-09-25 09:57:19
+### 2025-09-25 16:23:16
 #### PRD 更新记录
 - 本次无 PRD 更新。
 
 #### 代码更新记录
-- `A`: .gitignore
 - `M`: README.md
-- `A`: cc_runner.md
+- `M`: cc_runner.md
+- `M`: experience.md
+- `M`: generate_image.py
+- `M`: generated_images.zip
+- `M`: git_history.txt
 - `M`: manual.md
-- `M`: update_log.py
-
-#### 调试版本记录
-- (请在此处手动填写版本信息)
-
----
-### 2025-09-25 09:58:00
-#### PRD 更新记录
-- `prd.md` 已更新。
-
-#### 代码更新记录
-- `D`: prd.md
+- `A`: project_template/Modulon_Labs_test.pdf
+- `A`: requirements.txt
 
 #### 调试版本记录
 - (请在此处手动填写版本信息)

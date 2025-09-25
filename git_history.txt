@@ -2,3 +2,14 @@
 c7d684d - feat: Implement core image generation script using TDD cycle with AI (8 hours ago)
 2d6aec5 - feat: Analyze target style and create HTML/CSS template (11 hours ago)
 944d79a - feat: Add initial project files (15 hours ago)
+
+--------------------------------------------------
+Commit Title:
+refactor: Improve execution robustness and update documentation
+
+Commit Body:
+- Replace the problematic `run.bat` script with a direct and more reliable `python` execution method.
+- Enhance the core script to accept command-line arguments and fix Windows-specific encoding errors.
+- Introduce `requirements.txt` for standardized dependency management.
+- Update all documentation (README, manual, dev_log, etc.) to reflect the new execution flow and capture key learnings from the debugging process.
+--------------------------------------------------

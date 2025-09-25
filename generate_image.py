@@ -8,7 +8,6 @@ import zipfile # Import zipfile
 import shutil # Import shutil
 
 async def create_image(title: str, content: str, output_full_path: str):
-    sys.stdout.reconfigure(encoding='utf-8')
     browser = None
     try:
         async with async_playwright() as p:
@@ -40,7 +39,17 @@ async def create_image(title: str, content: str, output_full_path: str):
             await browser.close()
 
 async def main():
-    input_csv_path = 'input_data.csv'
+    # Reconfigure stdout to use UTF-8 encoding to handle special characters
+    sys.stdout.reconfigure(encoding='utf-8')
+
+    # Check for command-line argument for CSV file path
+    if len(sys.argv) > 1:
+        input_csv_path = sys.argv[1]
+        print(f"ℹ️ 使用指定的CSV文件: {input_csv_path}")
+    else:
+        input_csv_path = 'input_data.csv'
+        print(f"ℹ️ 使用默认的CSV文件: {input_csv_path}")
+
     output_dir = 'output' # Define output directory
     zip_filename = 'generated_images.zip' # Define zip filename
 

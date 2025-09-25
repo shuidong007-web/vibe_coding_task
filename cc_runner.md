@@ -93,10 +93,8 @@
 
 4.  **批量处理与打包功能增强 (Phase 3)**
     *   **cc-runner:** `gemini prompt 'gemini cli 把下面的内容生成文档input_data.csv 内容如下：{"AI编程新范式","Vibe Coding引领开发者进入与AI深度协作的新时代，效率与创造力得到极大提升。" ...}' > input_data.csv`
-    *   **cc-runner:** `gemini prompt "你是一位精通Python文件处理和代码重构的专家。请帮我升级'generate_image.py'脚本。当前脚本...请提供升级后的完整'generate_image.py'代码。" generate_image.py > generate_image_batch.py`
-    *   **cc-runner:** `python generate_image_batch.py` (运行，预期成功生成多张图片和zip文件)
-    *   **cc-runner:** `del generate_image.py` (删除旧脚本)
-    *   **cc-runner:** `ren generate_image_batch.py generate_image.py` (重命名新脚本)
+    *   **cc-runner:** `gemini prompt "你是一位精通Python文件处理和代码重构的专家。请帮我升级'generate_image.py'脚本，增加批量处理和ZIP打包功能。" generate_image.py > generate_image.py`
+    *   **cc-runner:** `python generate_image.py` (运行，预期成功生成多张图片和zip文件)
     *   **cc-runner:** `git add .`
     *   **cc-runner:** `git commit -m "feat: Implement batch processing from CSV and zip packaging"`
 
