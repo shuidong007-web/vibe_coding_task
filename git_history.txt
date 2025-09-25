@@ -1,0 +1,4 @@
+8357e03 - feat: Implement batch processing from CSV and zip packaging (5 minutes ago)
+c7d684d - feat: Implement core image generation script using TDD cycle with AI (8 hours ago)
+2d6aec5 - feat: Analyze target style and create HTML/CSS template (11 hours ago)
+944d79a - feat: Add initial project files (15 hours ago)
