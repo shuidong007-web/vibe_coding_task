@@ -27,7 +27,15 @@ def update_dev_log(staged_files):
     for file_status in staged_files:
         if not file_status:
             continue
-        status, file_path = file_status.split('\t')
+        parts = file_status.split(None, 1)
+        if len(parts) == 2:
+            status, file_path = parts
+        else:
+            # Handle cases where status might not be present or format is unexpected
+            status = '?' # Unknown status
+            file_path = file_status.strip()
+            print(f"⚠️ 警告：无法解析文件状态行: {file_status}")
+            continue # Skip this entry
         if 'prd.md' in file_path:
             prd_updated = True
         # Exclude the log file itself from the list of code updates

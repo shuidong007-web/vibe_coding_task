@@ -45,10 +45,14 @@ playwright install
 在完成环境配置和 `input_data.csv` 文件准备后，打开命令行工具，切换到项目根目录，然后执行以下命令即可运行项目：
 
 ```bash
+run.bat [可选: 您的自定义CSV文件名]
+```
+或者，如果您不使用 `run.bat` 脚本，可以直接运行 Python 脚本：
+```bash
 python generate_image.py
 ```
 
-脚本将自动读取 `input_data.csv`，为每一行数据生成图片，并进行打包。
+脚本将自动读取 `input_data.csv` (或您指定的CSV文件)，为每一行数据生成图片，并进行打包。
 
 ## 5. 产物说明
 脚本成功运行后，您将在项目根目录找到一个名为 `generated_images.zip` 的压缩文件。
